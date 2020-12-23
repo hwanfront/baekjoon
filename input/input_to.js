@@ -1,6 +1,6 @@
 // (input)
 // ... 
-// 0 => close
+// f => close
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
@@ -8,12 +8,14 @@ const rl = readline.createInterface({
 });
 
 let input = [];
+const f = 0;
 
 rl.on("line", function(c) {
-  if (c == 0) { 
+  if (c == f) { 
+    console.log(input);
     rl.close();
   }
-  input = c.split('');
+  input.push(c);
 }).on("close", function() {
   process.exit();
 });

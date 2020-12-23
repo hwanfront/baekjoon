@@ -11,10 +11,10 @@ let count;
 let res = '';
 
 rl.on("line", function(c) {
-  if (!isInput) { // 반복 횟수 입력
+  if (!isInput) {
     count = parseInt(c);
     isInput = !isInput;
-  } else {  // 반복 입력
+  } else {
     count--;
     input = c.split('');
     if (input.length % 2 == 1) {
