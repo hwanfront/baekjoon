@@ -18,10 +18,10 @@ class Queue {
     enqueue(data) {
         const tmp = this.tail;
         this.tail = new Node(data);
-        if(this.isEmpty()) { 
-            this.head = this.tail; 
-        } else { 
-            tmp.next = this.tail 
+        if (this.isEmpty()) {
+            this.head = this.tail;
+        } else {
+            tmp.next = this.tail
         };
     }
 
@@ -32,12 +32,12 @@ class Queue {
     }
 }
 
-class PriorityQueue extends Queue{
+class PriorityQueue extends Queue {
     enqueue(data) {
         const newNode = new Node(data);
-        if(this.isEmpty()) { 
-            this.head = newNode; 
-        } else { 
+        if (this.isEmpty()) {
+            this.head = newNode;
+        } else {
             if (data < this.head.data) {
                 newNode.next = this.head;
                 this.head = newNode;
@@ -45,7 +45,7 @@ class PriorityQueue extends Queue{
             }
             let node = this.head;
             while (node.next) {
-                if(node.data < data && data < node.next.data) {
+                if (node.data < data && data < node.next.data) {
                     newNode.next = node.next;
                     break;
                 }

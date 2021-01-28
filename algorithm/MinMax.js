@@ -1,4 +1,4 @@
-function max(arr) {
+const max = (arr) => {
     let num = arr[0];
     for (let i = 1; i < arr.length; i++) {
         if (arr[i] > num) {
@@ -8,11 +8,12 @@ function max(arr) {
     return num;
 }
 
-function min(arr) {
+const min = (arr) => {
     let num = arr[0];
     for (let i = 1; i < arr.length; i++) {
         if (arr[i] < num) {
             num = arr[i]
         }
     }
+    return num;
 }
