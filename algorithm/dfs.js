@@ -7,3 +7,28 @@ const dfs = (num) => {
         }
     }
 };
+
+const dfs = (graph, x, y) => {
+    if (graph[x][y] === 1) {
+        graph[x][y] = 0;
+        if(y < graph[x].length-1) dfs(graph, x, y + 1);
+        if(y > 0) dfs(graph, x, y - 1);
+        if(x > 0) dfs(graph, x - 1, y);
+        if(x < graph.length-1) dfs(graph, x + 1, y);
+    }
+}
+
+const dfs = (graph, x, y) => {
+    if (graph[x][y] === 1) {
+        graph[x][y] = 0;
+        if(0 < y && 0 < x) dfs(graph, x-1, y-1);
+        if(0 < y && x < graph.length-1) dfs(graph, x+1, y-1);
+        if(y < graph[x].length-1 && 0 < x) dfs(graph, x-1, y+1);
+        if(y < graph[x].length-1 && x < graph.length-1) dfs(graph, x+1, y+1);
+
+        if(0 < y) dfs(graph, x, y - 1);
+        if(y < graph[x].length-1) dfs(graph, x, y + 1);
+        if(0 < x) dfs(graph, x - 1, y);
+        if(x < graph.length-1) dfs(graph, x + 1, y);
+    }
+}
