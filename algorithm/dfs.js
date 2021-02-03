@@ -8,6 +8,7 @@ const dfs = (num) => {
     }
 };
 
+// Array
 const dfs = (graph, x, y) => {
     if (graph[x][y] === 1) {
         graph[x][y] = 0;
@@ -30,5 +31,24 @@ const dfs = (graph, x, y) => {
         if(y < graph[x].length-1) dfs(graph, x, y + 1);
         if(0 < x) dfs(graph, x - 1, y);
         if(x < graph.length-1) dfs(graph, x + 1, y);
+    }
+}
+
+const dfs = (graph, j, k) => {
+    const stack = [];
+    stack.push([j, k]);
+
+    while(stack.length !== 0) {
+        const [ x, y ] = stack.pop();
+        for(let i = 0; i < xy.length; i++) {
+            const nx = x + xy[i][0];
+            const ny = y + xy[i][1];
+            if(0 <= nx && nx < N && 0 <= ny && ny < N) {
+                if(graph[nx][ny]) {
+                    graph[nx][ny] = 0;
+                    stack.push([nx, ny]);
+                }
+            }
+        }
     }
 }
