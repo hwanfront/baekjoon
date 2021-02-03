@@ -5,7 +5,6 @@ const input = '4 4';
 const [N, M] = input.split(' ').map(e => Number(e));
 
 const visited = new Array(N).fill(false);
-const res = [];
 const stack = [];
 
 const dfs = (num) => {
