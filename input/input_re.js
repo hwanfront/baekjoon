@@ -8,10 +8,10 @@ const rl = readline.createInterface({
 });
 
 let N = null;
-let input = [];
+const input = [];
 let isInput = false
 
-rl.on("line", function(c) {
+rl.on("line", (c) => {
   if (!isInput) { // 반복 횟수 입력
 
     N = parseInt(c);
@@ -26,6 +26,6 @@ rl.on("line", function(c) {
       rl.close();
     }
   }
-}).on("close", function() {
+}).on("close", () => {
   process.exit();
 });

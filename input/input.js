@@ -9,13 +9,13 @@ const rl = readline.createInterface({
 
 let input = [];
 
-rl.on("line", function(c) {                       // c = "1 2 3"
-  input = c.split(' ').map((e) => parseInt(e));   // => [1, 2, 3]
+rl.on("line", (c) => {                       // c = "1 2 3"
+  input = c.split(' ').map((e) => Number(e));   // => [1, 2, 3]
   input = c.split(' ');                           // => ['1', '2', '3']
   input = c.split('');                            // => ['1', ' ', '2', ' ', '3']
   input.push(c);                                  // => ['1 2 3']
   rl.close();
-}).on("close", function() {
+}).on("close", () => {
   process.exit();
 });
 

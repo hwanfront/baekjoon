@@ -4,14 +4,13 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-let input = [];
 let len = null;
 
-rl.on("line", function(c) {
+rl.on("line", (c) => {
   if (c == 0) {
     rl.close();
   }
-  input = c.split('');
+  const input = c.split('');
   len = input.length;
   for(let i = 0; i < len/2; i++) {
     if (input[i] != input[len - 1 - i]) {
@@ -20,6 +19,6 @@ rl.on("line", function(c) {
     }
   }
   console.log("yes")
-}).on("close", function() {
+}).on("close", () => {
   process.exit();
 });

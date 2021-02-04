@@ -4,10 +4,10 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-rl.on("line", function(c) {
+rl.on("line", (c) => {
   console.log(c.charCodeAt(0))
 
   rl.close();
-}).on("close", function() {
+}).on("close",() => {
   process.exit();
 });

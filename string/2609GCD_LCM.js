@@ -4,15 +4,14 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-let input = [];
 let GCD = null;  // greatest common divisor 최대공약수
 let LCM = null;  // least common multiple 최대공배수
 let b = null;
 let s = null;
 
 
-rl.on("line", function(c) {
-  input = c.split(' ').map((e) => parseInt(e)); // 입력2 [ ... ]
+rl.on("line", (c) => {
+  const input = c.split(' ').map((e) => parseInt(e)); // 입력2 [ ... ]
   // 동일한 두 값
   if (input[0] == input[1]) { 
     console.log(input[0])
@@ -31,8 +30,8 @@ rl.on("line", function(c) {
   // 유클리드 호제법
   GCD = gcd(input[0], input[1]);  
 
-  let ab = b;
-  let as = s;
+  const ab = b;
+  const as = s;
 
   while ( b != s ) {
     if ( b > s ) {
@@ -47,10 +46,10 @@ rl.on("line", function(c) {
   console.log(LCM);
 
   rl.close();
-}).on("close", function() {
+}).on("close", () => {
   process.exit();
 });
 
-function gcd (a, b) {
+const gcd = (a, b) => {
   return b ? gcd (b, a%b) : a;
 }

@@ -1,3 +1,4 @@
+// 연결리스트
 const dfs = (num) => {
     res.push(num);
     visited[num] = true;
@@ -8,7 +9,7 @@ const dfs = (num) => {
     }
 };
 
-// Array
+// Array 4방향
 const dfs = (graph, x, y) => {
     if (graph[x][y] === 1) {
         graph[x][y] = 0;
@@ -19,6 +20,7 @@ const dfs = (graph, x, y) => {
     }
 }
 
+// Array 8방향
 const dfs = (graph, x, y) => {
     if (graph[x][y] === 1) {
         graph[x][y] = 0;

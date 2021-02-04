@@ -7,7 +7,7 @@ const rl = readline.createInterface({
 let isInput = false;
 let row = null;
 let col = null;
-let myBoard = [];
+const myBoard = [];
 const wb = [
   ["W","B","W","B","W","B","W","B"],
   ["B","W","B","W","B","W","B","W"],
@@ -30,7 +30,7 @@ const bw = [
 ];
 let res = 32;
 
-rl.on("line", function(c) {
+rl.on("line", (c) => {
   if (!isInput) {
     count = parseInt(c);
     const input = c.split(' ').map((e) => parseInt(e));
@@ -44,8 +44,8 @@ rl.on("line", function(c) {
     if (cnt == 0) {
       for (let i = 0; i < row-7; i++) {
         for (let j = 0; j < col-7; j++) {
-          let wbs = resWb(i,j);
-          let bws = resBw(i,j);
+          const  wbs = resWb(i,j);
+          const  bws = resBw(i,j);
           let resMin = null;
           if (wbs < bws) {
             resMin = wbs;
@@ -61,11 +61,11 @@ rl.on("line", function(c) {
       rl.close();
     }
   }
-}).on("close", function() {
+}).on("close", () => {
   process.exit();
 });
 
-function resWb (row, col) {
+const resWb = (row, col) => {
   let cnt = 0;
   for (let i = row; i < row + 8; i++) {
     for (let j = col; j < col + 8; j++) {
@@ -77,7 +77,7 @@ function resWb (row, col) {
   return cnt;
 };
 
-function resBw (row, col) {
+const resBw = (row, col) => {
   let cnt = 0;
   for (let i = row; i < row + 8; i++) {
     for (let j = col; j < col + 8; j++) {

@@ -10,12 +10,12 @@ const rl = readline.createInterface({
 let input = [];
 const f = 0;
 
-rl.on("line", function(c) {
-  if (c == f) { 
+rl.on("line", (c) => {
+  if (Number(c) == f) { 
     console.log(input);
     rl.close();
   }
   input.push(c);
-}).on("close", function() {
+}).on("close", () => {
   process.exit();
 });
