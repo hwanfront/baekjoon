@@ -8,7 +8,7 @@ const input = fs.readFileSync("/dev/stdin").toString()
 const input = fs.readFileSync("/dev/stdin").toString().split(" ")
 
 // 만약 인풋값이 숫자라면
-const input = fs.readFileSync("/dev/stdin").toString().split(" ").map(function(a) {return +a})
+const input = fs.readFileSync("/dev/stdin").toString().split(" ").map((e) => {return Number(e)})
 
 // 줄바꿈으로 구분
 const input = fs.readFileSync("/dev/stdin").toString().split("\n")

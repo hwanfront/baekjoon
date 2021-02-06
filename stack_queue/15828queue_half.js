@@ -6,10 +6,10 @@ const rl = readline.createInterface({
 
 let isBf = false;
 let bfSize = null;
-let bf = [];
+const bf = [];
 let res = '';
 
-rl.on("line", function(c) {
+rl.on("line", (c) => {
   if (!isBf) {
     bfSize = parseInt(c);
     isBf = !isBf;
@@ -36,6 +36,6 @@ rl.on("line", function(c) {
       bf.push(c);
     }
   }
-}).on("close", function() {
+}).on("close", () => {
   process.exit();
 });

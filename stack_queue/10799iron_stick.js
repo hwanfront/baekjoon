@@ -7,7 +7,7 @@ const rl = readline.createInterface({
 
 let input = [];
 
-rl.on("line", function (c) {
+rl.on("line", (c) => {
   input = c.split('');
   let count = 0;
   let res = 0;
@@ -32,7 +32,7 @@ rl.on("line", function (c) {
 
   console.log(res);
   rl.close();
-}).on("close", function() {
+}).on("close", () => {
   process.exit();
 });
 

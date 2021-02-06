@@ -20,7 +20,7 @@ const N = removeDuplicate.shift();
 const NLen = removeDuplicate.length;
 let output = '';
 
-removeDuplicate.sort().sort(function (a,b) {
+removeDuplicate.sort().sort((a,b) => {
   const aLen = a.length;
   const bLen = b.length;
 

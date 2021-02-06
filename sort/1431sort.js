@@ -11,7 +11,7 @@ const input = ['5',
 const N = parseInt(input.shift());
 let output = '';
 
-input.sort().sort(function (a,b) {
+input.sort().sort((a,b) => {
   const aLen = a.length;
   const bLen = b.length;
   if(aLen === bLen) {

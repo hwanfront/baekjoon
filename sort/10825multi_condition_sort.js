@@ -17,7 +17,7 @@ const input = ['12',
 const N = parseInt(input.shift());
 let output = '';
 
-input.sort(function (a,b) {
+input.sort((a,b) => {
   const aName = a[0];
   const bName = b[0];
   const aKor = parseInt(a[1]);

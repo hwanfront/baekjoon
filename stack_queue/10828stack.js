@@ -16,7 +16,7 @@ class Stack {
   }
 
   pop() {
-    if(this.tp == 0) {
+    if(this.tp === 0) {
       return '-1';
     } else {
       this.tp = this.tp - 1;
@@ -29,7 +29,7 @@ class Stack {
   }
 
   top() {
-    if(this.tp == 0) {
+    if(this.tp === 0) {
       return '-1';
     } else {
       return this.store[this.tp-1];
@@ -37,7 +37,7 @@ class Stack {
   }
 
   isEmpty() {
-    if(this.tp == 0) {
+    if(this.tp === 0) {
       return '1';
     } else {
       return '0';
@@ -46,8 +46,7 @@ class Stack {
 }
 
 const stack = new Stack();
-let input = [];
-let isInput = false;
+const input = [];
 let count;
 let res = '';
 rl.on("line", function(c) {
@@ -56,7 +55,7 @@ rl.on("line", function(c) {
     isInput = !isInput;
   } else {
     count--;
-    input = c.split(' ');
+    const input = c.split(' ');
 
     if(input[0] == "push") {
       stack.push(input[1]);
@@ -70,11 +69,11 @@ rl.on("line", function(c) {
       res = res + stack.isEmpty() + '\n';
     }
 
-    if (count == 0) {
+    if (count === 0) {
       console.log(res);
       rl.close();
     }
   }
-}).on("close", function() {
+}).on("close", () => {
   process.exit();
 });

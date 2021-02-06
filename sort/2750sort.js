@@ -4,16 +4,16 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+const input = [];
 let N = null;
-let input = [];
 
-rl.on("line", function(c) {
+rl.on("line", (c) => {
   solve(c);
-}).on("close", function() {
+}).on("close", () => {
   process.exit();
 });
 
-function solve (c) {
+const solve = (c) => {
   if (!N) {
     N = parseInt(c);
   } 
@@ -32,7 +32,7 @@ function solve (c) {
   }
 }
 
-function mergeSort (arr) {
+const mergeSort = (arr) => {
   if (arr.length === 1) {
       return arr;
   }
@@ -44,12 +44,12 @@ function mergeSort (arr) {
   return merge(mergeSort(left), mergeSort(right));
 }
 
-function merge (left, right) {
+const merge = (left, right) => {
 
-  let result = [];
+  const result = [];
 
   while(left.length && right.length) {
-    +left[0] < +right[0] ? result.push(left.shift()) : result.push(right.shift());
+    Number(left[0]) < Number(right[0]) ? result.push(left.shift()) : result.push(right.shift());
   }
   while(left.length) {
     result.push(left.shift());

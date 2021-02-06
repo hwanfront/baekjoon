@@ -4,16 +4,15 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-let input = [];
 let res = '';
 
-rl.on("line", function(c) {
-  if (c == '.') {
+rl.on("line", (c) => {
+  if (c === '.') {
     console.log(res);
     rl.close();
   }
-  input = c.split('');
-  let arr = [];
+  const input = c.split('');
+  const arr = [];
   for (let i = 0; i < input.length; i++) {
     if (input[i] == '(' || input[i] == '[') {
       arr.push(input[i]);
@@ -42,7 +41,7 @@ rl.on("line", function(c) {
     res = res + 'no\n';
   }
 
-}).on("close", function() {
+}).on("close", () => {
   process.exit();
 });
 

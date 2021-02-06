@@ -17,7 +17,7 @@ class Stack {
   }
 
   pop() {
-    if (this.tp == 0) {
+    if (this.tp === 0) {
       return -1;
     } else {
       this.tp = this.tp - 1;
@@ -30,7 +30,7 @@ class Stack {
   }
 
   top() {
-    if (this.tp == 0) {
+    if (this.tp === 0) {
       return -1;
     } else {
       return this.store[this.tp - 1];
@@ -38,7 +38,7 @@ class Stack {
   }
 
   isEmpty() {
-    if (this.tp == 0) {
+    if (this.tp === 0) {
       return 1;
     } else {
       return 0;
@@ -46,13 +46,13 @@ class Stack {
   }
 }
 
-let input = [];
+const input = [];
 let sum = 1;
 let res = 0;
 let isClosed = false;
-let s = new Stack;
+const s = new Stack;
 
-rl.on("line", function (c) {
+rl.on("line", (c) => {
   input = c.split('');
   while (input.length) {
     if (input[0] == '(' || input[0] == '[') {
@@ -106,6 +106,6 @@ rl.on("line", function (c) {
   }
 
   rl.close();
-}).on("close", function () {
+}).on("close", () => {
   process.exit();
 });

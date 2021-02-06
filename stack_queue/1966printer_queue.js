@@ -9,7 +9,7 @@ let testcase = null;
 let M = -1;
 let output = '';
 
-rl.on("line", function(c) {
+rl.on("line", (c) => {
   if (!testcase) { // 반복 횟수 입력
     testcase = parseInt(c);
   } 
@@ -18,17 +18,17 @@ rl.on("line", function(c) {
       M = parseInt(c.split(' ')[1]);
     }
     else {
-      let imp = c.split(' ').map((e) => parseInt(e));
-      let docArr = setDocArr(imp);
+      const imp = c.split(' ').map((e) => parseInt(e));
+      const docArr = setDocArr(imp);
       let maxImp = maxImportance(docArr);
       let res = 1;
 
       while(1) {
-        if (docArr[0][1] == maxImp && docArr[0][0] == M) {
+        if (docArr[0][1] === maxImp && docArr[0][0] === M) {
           output = output + res + '\n';
           break;
         }
-        else if (docArr[0][1] == maxImp) {
+        else if (docArr[0][1] === maxImp) {
           docArr.shift();
           maxImp = maxImportance(docArr);
           res++;
@@ -46,21 +46,21 @@ rl.on("line", function(c) {
       rl.close();
     }
   }
-}).on("close", function() {
+}).on("close", () => {
   console.log(output);
   process.exit();
 });
 
-function setDocArr (arr) {
-  let res = [];
+const setDocArr = (arr) => {
+  const res = [];
   for (let i = 0; i < arr.length; i++) {
     res.push([i,arr[i]]);
   }
   return res;
 }
 
-function maxImportance (arr) {
-  let max = arr[0][1];
+const maxImportance = (arr) => {
+  const max = arr[0][1];
   for (let i = 1; i < arr.length; i++) {
     if(max < arr[i][1]) {
       max = arr[i][1];

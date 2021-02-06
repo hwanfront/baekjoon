@@ -11,7 +11,7 @@ let input = [];
 const f = 0;
 
 rl.on("line", (c) => {
-  if (Number(c) == f) { 
+  if (Number(c) === f) { 
     console.log(input);
     rl.close();
   }

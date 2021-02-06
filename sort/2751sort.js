@@ -1,11 +1,10 @@
-const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n').map(num => parseInt(num));
-const N = input.shift();
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n').map(num => parseInt(num));
+// const N = input.shift();
 const result = mergeSort(input).join('\n');
 
 console.log(result);
 
-function mergeSort(arr) {
+const mergeSort = (arr) => {
   if (arr.length === 1) {
     return arr;
   }
@@ -17,8 +16,8 @@ function mergeSort(arr) {
   return merge(mergeSort(left), mergeSort(right));
 }
 
-function merge(left, right) {
-  let result = [];
+const merge = (left, right) => {
+  const result = [];
   let leftIndex = 0;
   let rightIndex = 0;
 

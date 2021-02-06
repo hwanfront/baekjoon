@@ -16,7 +16,7 @@ class Queue {
   }
 
   pop() {
-    if(this.tp == 0) {
+    if(this.tp === 0) {
       return '-1';
     } else {
       this.tp = this.tp - 1;
@@ -29,7 +29,7 @@ class Queue {
   }
 
   isEmpty() {
-    if(this.tp == 0) {
+    if(this.tp === 0) {
       return '1';
     } else {
       return '0';
@@ -37,14 +37,14 @@ class Queue {
   }
 
   front() {
-    if(this.tp == 0) {
+    if(this.tp === 0) {
         return '-1';
     } else {
         return this.store[0];
     }
   }
   back() {
-    if(this.tp == 0) {
+    if(this.tp === 0) {
         return '-1';
     } else {
         return this.store[this.tp-1];
@@ -53,17 +53,16 @@ class Queue {
 }
 
 const queue = new Queue();
-let input = [];
 let isInput = false;
 let count;
 let res = '';
-rl.on("line", function(c) {
+rl.on("line", (c) => {
   if (!isInput) { 
     count = parseInt(c);
     isInput = !isInput;
   } else {
     count--;
-    input = c.split(' ');
+    const input = c.split(' ');
 
     if(input[0] == "push") {
         queue.push(input[1]);
@@ -84,6 +83,6 @@ rl.on("line", function(c) {
       rl.close();
     }
   }
-}).on("close", function() {
+}).on("close", () => {
   process.exit();
 });

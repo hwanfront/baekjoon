@@ -5,12 +5,12 @@ const rl = readline.createInterface({
 });
 
 
-let input = [];
+const input = [];
 let isInput = false;
 let count;
 let res = '';
 
-rl.on("line", function(c) {
+rl.on("line", (c) => {
   if (!isInput) {
     count = parseInt(c);
     isInput = !isInput;
@@ -42,13 +42,13 @@ rl.on("line", function(c) {
       }
     }
     
-    if (count == 0) {
+    if (count === 0) {
       console.log(res);
       rl.close();
     }
   }
 
-}).on("close", function() {
+}).on("close", () => {
   process.exit();
 });
 

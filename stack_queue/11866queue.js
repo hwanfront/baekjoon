@@ -4,12 +4,11 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-let input = [];
-let arr = [];
+const arr = [];
 let res = "<";
 
-rl.on("line", function(c) {
-  input = c.split(' ').map((el) => parseInt(el));
+rl.on("line", (c) => {
+  const input = c.split(' ').map((el) => parseInt(el));
   let i;
   for (i = 1; i < input[0] + 1; i++) {
     arr.push(i);
@@ -27,7 +26,7 @@ rl.on("line", function(c) {
   res = res + '>';
   console.log(res);
   rl.close();
-}).on("close", function() {
+}).on("close", () => {
   process.exit();
 });
 
