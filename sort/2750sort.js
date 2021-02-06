@@ -16,14 +16,14 @@ rl.on("line", (c) => {
 const solve = (c) => {
   if (!N) {
     N = parseInt(c);
-  } 
+  }
   else {
     N--;
     input.push(c);
     if (N == 0) {
       const arr = mergeSort(input);
       let result = '';
-      for(let i = 0; i < arr.length; i++) {
+      for (let i = 0; i < arr.length; i++) {
         result += arr[i] + '\n';
       }
       console.log(result);
@@ -34,7 +34,7 @@ const solve = (c) => {
 
 const mergeSort = (arr) => {
   if (arr.length === 1) {
-      return arr;
+    return arr;
   }
 
   const mid = Math.floor(arr.length / 2);
@@ -48,13 +48,13 @@ const merge = (left, right) => {
 
   const result = [];
 
-  while(left.length && right.length) {
+  while (left.length && right.length) {
     Number(left[0]) < Number(right[0]) ? result.push(left.shift()) : result.push(right.shift());
   }
-  while(left.length) {
+  while (left.length) {
     result.push(left.shift());
   }
-  while(right.length) {
+  while (right.length) {
     result.push(right.shift());
   }
   return result;
