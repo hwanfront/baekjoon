@@ -1,4 +1,7 @@
 // const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+const input = ['4 7',
+  '20 15 10 17'
+]
 
 const first = input[0].split(' ');
 const N = parseInt(first[0]);
