@@ -14,6 +14,7 @@ const input = ['12',
 'nsj 80 80 80',
 'Taewhan 50 60 90'
 ].map(e => e.split(' '));
+
 const N = parseInt(input.shift());
 let output = '';
 
@@ -41,5 +42,6 @@ input.sort((a,b) => {
 for(let i = 0; i < N; i++) {
   output += input[i][0] + '\n';
 }
+
 console.log(output);
 

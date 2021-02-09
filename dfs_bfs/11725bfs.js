@@ -32,11 +32,13 @@ for (let i = 0; i < N + 1; i++) {
   graph[i] = [];
   visited[i] = false;
 }
+
 for (let i = 0; i < N - 1; i++) {
   const [a, b] = input[i].split(' ').map(e => parseInt(e));
   graph[a].push(b);
   graph[b].push(a);
 }
+
 graph.forEach(e => e.sort((a,b) => a-b));
 
 bfs(1);

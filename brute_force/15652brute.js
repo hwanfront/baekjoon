@@ -3,8 +3,8 @@ const input = '3 3';
 
 const [N, M] = input.split(' ').map(e => Number(e));
 const visited = new Array(N).fill(false);
-let res = '';
 const stack = [];
+let res = '';
 
 const dfs = (num) => {
     if(stack.length === M) {

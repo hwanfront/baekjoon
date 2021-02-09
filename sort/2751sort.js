@@ -2,8 +2,6 @@ const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('
 // const N = input.shift();
 const result = mergeSort(input).join('\n');
 
-console.log(result);
-
 const mergeSort = (arr) => {
   if (arr.length === 1) {
     return arr;
@@ -33,3 +31,5 @@ const merge = (left, right) => {
 
   return [...result, ...left.slice(leftIndex), ...right.slice(rightIndex)];
 }
+
+console.log(result);

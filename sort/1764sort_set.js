@@ -9,6 +9,7 @@ const input = ['3 4',
 'ohhenrie',
 'clinton'
 ];
+
 const first = input.shift().split(' ');
 const N = parseInt(first[0]);
 const M = parseInt(first[1]);
@@ -23,6 +24,7 @@ for (const el of listen) {
     output += el + '\n';
   }
 }
+
 output = num + '\n' + output;
 console.log(output);
 

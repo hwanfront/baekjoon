@@ -15,6 +15,7 @@ const input = ['13',
   'im',
   'yours'
 ];
+
 const removeDuplicate = input.filter((item, index) => input.indexOf(item) === index);
 const N = removeDuplicate.shift();
 const NLen = removeDuplicate.length;
@@ -36,15 +37,14 @@ removeDuplicate.sort().sort((a,b) => {
         bSum += parseInt(b[i]);
       }
     }
-
     return aSum < bSum ? -1 : aSum > bSum ? 1 : 0;
   }
-  
   return aLen < bLen ? -1 : aLen > bLen ? 1 : 0;
 });
 
 for(let i = 0; i < NLen; i++) {
   output += removeDuplicate[i] + '\n';
 }
+
 console.log(output);
 

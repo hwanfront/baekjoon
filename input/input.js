@@ -7,12 +7,10 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-let input = [];
-
 rl.on("line", (c) => {                       // c = "1 2 3"
-  input = c.split(' ').map((e) => Number(e));   // => [1, 2, 3]
-  input = c.split(' ');                           // => ['1', '2', '3']
-  input = c.split('');                            // => ['1', ' ', '2', ' ', '3']
+  const input = c.split(' ').map((e) => Number(e));   // => [1, 2, 3]
+  // const input = c.split(' ');                           // => ['1', '2', '3']
+  // const input = c.split('');                            // => ['1', ' ', '2', ' ', '3']
   input.push(c);                                  // => ['1 2 3']
   rl.close();
 }).on("close", () => {

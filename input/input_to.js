@@ -7,7 +7,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-let input = [];
+const input = [];
 const f = 0;
 
 rl.on("line", (c) => {

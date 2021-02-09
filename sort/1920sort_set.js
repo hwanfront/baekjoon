@@ -1,10 +1,12 @@
 // const fs = require('fs');
 // const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
+
 const input = ['5',
   '4 1 5 2 3',
   '5',
   '1 3 7 9 5'
 ];
+
 const N = parseInt(input[0]);
 const M = parseInt(input[2]);
 const fst = new Set(input[1].split(' ').sort());
@@ -20,5 +22,6 @@ for (const el of sec) {
     output += '0\n'
   }
 }
+
 console.log(output);
 

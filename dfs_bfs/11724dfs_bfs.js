@@ -52,11 +52,13 @@ for (let i = 0; i < N + 1; i++) {
   graph[i] = [];
   visited[i] = 0;
 }
+
 for (let i = 1; i < M + 1; i++) {
   const [x, y] = input[i].split(' ').map(e => parseInt(e));
   graph[x].push(y);
   graph[y].push(x);
 }
+
 graph.forEach(e => e.sort((a,b) => a-b));
 
 for(let i = 1; i < N + 1; i++) {

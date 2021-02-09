@@ -1,5 +1,4 @@
 // const fs = require('fs');
-// const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
 // const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n').map(e => e.split(' '));
 const input = ['5',
   'ABCD',
@@ -8,6 +7,7 @@ const input = ['5',
   'Z321',
   '145C',
 ];
+
 const N = parseInt(input.shift());
 let output = '';
 
@@ -33,4 +33,5 @@ input.sort().sort((a,b) => {
 for(let i = 0; i < N; i++) {
   output += input[i] + '\n';
 }
+
 console.log(output);

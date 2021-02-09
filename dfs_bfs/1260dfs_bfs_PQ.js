@@ -56,6 +56,33 @@ class PriorityQueue extends Queue {
   }
 }
 
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+
+// const input = ['5 5 3',
+// '5 4',
+// '5 2',
+// '1 2',
+// '3 4',
+// '3 1',
+// ];
+
+// const input = ['4 5 1',
+// '1 2',
+// '1 3',
+// '1 4',
+// '2 4',
+// '3 4',
+// ];
+
+// const input = ['1000 1 1000',
+// '999 1000',
+// ];
+
+const [N, M, V] = input[0].split(' ').map(x => {return Number(x)});;
+const graph = Array(N + 1);
+const visited = Array(N + 1);
+let res = [];
+
 const dfs = (num) => {
   res.push(num);
   visited[num] = true;
@@ -86,43 +113,17 @@ const bfs = (num) => {
   }
 };
 
-const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
-
-// const input = ['5 5 3',
-// '5 4',
-// '5 2',
-// '1 2',
-// '3 4',
-// '3 1',
-// ];
-
-// const input = ['4 5 1',
-// '1 2',
-// '1 3',
-// '1 4',
-// '2 4',
-// '3 4',
-// ];
-
-// const input = ['1000 1 1000',
-// '999 1000',
-// ];
-
-const [N, M, V] = input[0].split(' ').map(x => {return Number(x)});;
-const graph = Array(N + 1);
-const visited = Array(N + 1);
-let res = [];
-
-
 for (let i = 0; i < N + 1; i++) {
   graph[i] = new PriorityQueue();
   visited[i] = false;
 }
+
 for (let i = 1; i <= M; i++) {
   const [a, b] = input[i].split(' ').map(e => parseInt(e));
   graph[a].enqueue(b);
   graph[b].enqueue(a);
 }
+
 dfs(V);
 for (let i = 0; i < N + 1; i++) {
   visited[i] = false;

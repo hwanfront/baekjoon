@@ -8,8 +8,8 @@ const [N, M] = input[0].split(' ').map(e => Number(e));
 const data = input[1].split(' ').map(e => Number(e)).sort((a,b) => a-b);
 
 const visited = new Array(N).fill(false);
-let res = '';
 const stack = [];
+let res = '';
 
 const dfs = () => {
     if(stack.length === M) {
