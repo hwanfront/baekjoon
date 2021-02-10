@@ -20,7 +20,6 @@ const dfs = (graph, x, y) => {
     }
 }
 
-
 const xy = [[1,0], [-1,0], [0,1], [0,-1]];
 const dfs = (graph, j, k) => {
     const stack = [];
@@ -56,4 +55,3 @@ const dfs = (graph, x, y) => {
         if(x < graph.length-1) dfs(graph, x + 1, y);
     }
 }
-

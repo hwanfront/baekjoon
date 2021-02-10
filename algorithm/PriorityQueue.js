@@ -55,4 +55,3 @@ class PriorityQueue extends Queue {
         };
     }
 }
-
