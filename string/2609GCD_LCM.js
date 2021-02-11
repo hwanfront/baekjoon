@@ -51,5 +51,9 @@ rl.on("line", (c) => {
 });
 
 const gcd = (a, b) => {
-  return b ? gcd (b, a%b) : a;
+  return b ? gcd (b, a % b) : a;
+}
+
+const lcm = (a, b) => {
+  return a * b / gcd(a,b);
 }

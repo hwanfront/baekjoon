@@ -19,14 +19,8 @@ const N = parseInt(input.shift());
 let output = '';
 
 input.sort((a,b) => {
-  const aName = a[0];
-  const bName = b[0];
-  const aKor = parseInt(a[1]);
-  const bKor = parseInt(b[1]);
-  const aEng = parseInt(a[2]);
-  const bEng = parseInt(b[2]);
-  const aMath = parseInt(a[3]);
-  const bMath = parseInt(b[3]);
+  const {aName, aKor, aEng, aMath} = a;
+  const {bName, bKor, bEng, bMath} = b;
   if(aKor === bKor) {
     if (aEng === bEng) { 
       if (aMath === bMath) {

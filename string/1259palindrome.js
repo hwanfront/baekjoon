@@ -4,14 +4,12 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-let len = null;
-
 rl.on("line", (c) => {
   if (c == 0) {
     rl.close();
   }
   const input = c.split('');
-  len = input.length;
+  const len = input.length;
   for(let i = 0; i < len/2; i++) {
     if (input[i] != input[len - 1 - i]) {
       console.log("no");
