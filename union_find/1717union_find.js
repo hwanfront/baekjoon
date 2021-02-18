@@ -1,4 +1,4 @@
-// Error: EACCES: permission denied
+// Error: EACCES: permission denied 
 
 // const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 const input = ['7 8',
