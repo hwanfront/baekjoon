@@ -46,7 +46,8 @@ class Stack {
 }
 
 const stack = new Stack();
-const input = [];
+let input = [];
+let isInput = false;
 let count;
 let res = '';
 rl.on("line", function(c) {
@@ -55,7 +56,7 @@ rl.on("line", function(c) {
     isInput = !isInput;
   } else {
     count--;
-    const input = c.split(' ');
+    input = c.split(' ');
 
     if(input[0] == "push") {
       stack.push(input[1]);
