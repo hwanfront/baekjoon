@@ -1,3 +1,7 @@
+// 
+// https://jun-choi-4928.medium.com/javascript%EB%A1%9C-heap-priority-queue-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-8bc13bf095d9
+//
+
 class Heap {
     constructor() {
         this.heap = [];
@@ -81,3 +85,4 @@ class PriorityQueue extends Heap {
     dequeue = () => this.remove()
     isEmpty = () => this.heap.length <= 0
 }
+
