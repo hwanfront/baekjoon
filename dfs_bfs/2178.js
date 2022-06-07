@@ -1,73 +1,51 @@
-// const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+// const input = require('fs').readFileSync('/dev/stdin').toString().trim();
+const input = `7 7
+1011111
+1000001
+1000001
+1000001
+1000001
+1000001
+1111111`
 
-const input = [
-    '4 6',
-    '101111',
-    '101010',
-    '101011',
-    '111011',
-    ];
-    
-    // const input = [
-    // '4 6',
-    // '110110',
-    // '110110',
-    // '111111',
-    // '111101',
-    // ];
-    
-    // const input = [
-    // '2 25',
-    // '1011101110111011101110111',
-    // '1110111011101110111011101',
-    // ];
-    
-    // const input = [
-    // '7 7',
-    // '1011111',
-    // '1110001',
-    // '1000001',
-    // '1000001',
-    // '1000001',
-    // '1000001',
-    // '1111111',
-    // ];
-    
-    
-    const xy = [[1,0], [-1,0], [0,1], [0,-1]];
-    const [N, M] = input[0].split(' ').map(e => Number(e));
-    const data = new Array(N);
-    const visited = new Array(N);
-    let res = 1;
-    
-    for(let i = 0; i < N; i++) {
-        data[i] = input[i+1].split('').map(e => Number(e));
-        visited[i] = new Array(M).fill(0);
-    }
-    visited[0][0] = 1;
-    console.log(data);
-    
-    
-    const dfs = (graph, j, k) => {
-        const stack = [];
-        stack.push([j, k]);
-    
-        while(graph[N-1][M-1]) {
-            const [ x, y ] = stack.pop();
-            for(let i = 0; i < xy.length; i++) {
-                const nx = x + xy[i][0];
-                const ny = y + xy[i][1];
-                if(0 <= nx && nx < N && 0 <= ny && ny < M) {
-                    if(graph[nx][ny]) {
-                        graph[nx][ny] = 0;
-                        stack.push([nx, ny]);
-                        res++;
-                    }
-                    console.log(data);
-                }
-            }
+solution(input);
+
+function solution (input) {
+  const [first, ...rest] = input.split('\n');
+  const [n, m] = first.split(' ').map(e => +e);
+  const dx = [1, 0, -1, 0];
+  const dy = [0, 1, 0, -1];
+  const visited = [];
+
+  for(let i = 0; i < n; i++) {
+    visited.push(new Array(m).fill(0));
+  }
+
+  
+  const bfs = (x, y) => {
+    visited[x][y] = 1;
+    const arr = [];
+    arr.push([x, y]);
+
+    while(arr.length) {
+      const first = arr.shift();
+      const x = first[0];
+      const y = first[1];
+
+      for(let i = 0; i < 4; i++) {
+        const xx = x + dx[i];
+        const yy = y + dy[i];
+
+        if(0 <= xx && xx < n && 0 <= yy && yy < m) {
+          if(rest[xx][yy] === '1' && visited[xx][yy] === 0) {
+            visited[xx][yy] = visited[x][y] + 1;
+            arr.push([xx, yy]);
+          }
         }
+      }
     }
-    
-    dfs(data, 0, 0)
-    console.log(res);
+  }
+  bfs(0, 0);
+
+  console.log(visited[n - 1][m - 1]);
+}
