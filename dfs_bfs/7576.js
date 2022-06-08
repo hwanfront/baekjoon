@@ -1,85 +1,67 @@
-// 토마토
-// const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+// const input = require('fs').readFileSync('/dev/stdin').toString().trim();
+const input = `6 4
+0 -1 0 0 0 0
+-1 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 1`
 
-const input = ['6 4',
-    '0 0 0 0 0 0',
-    '0 0 0 0 0 0',
-    '0 0 0 0 0 0',
-    '0 0 0 0 0 1',
-];
+console.log(solution(input));
 
-// const input = ['6 4',
-//     '0 -1 0 0 0 0',
-//     '-1 0 0 0 0 0',
-//     '0 0 0 0 0 0',
-//     '0 0 0 0 0 1',
-// ];
+function solution (input) {
+  const [first, ...rest] = input.split('\n');
+  const [m, n] = first.split(' ').map(e => +e);
+  const dx = [1, 0, -1, 0];
+  const dy = [0, 1, 0, -1];
+  const box = [];
 
-// const input = ['6 4',
-//     '1 -1 0 0 0 0',
-//     '0 -1 0 0 0 0',
-//     '0 0 0 0 -1 0',
-//     '0 0 0 0 -1 1',
-// ];
+  rest.forEach(e => {
+    box.push(e.split(' '));
+  })
 
-// const input = ['5 5',
-//     '-1 1 0 0 0',
-//     '0 -1 -1 -1 0',
-//     '0 -1 -1 -1 0',
-//     '0 -1 -1 -1 0',
-//     '0 0 0 0 0',
-// ];
+  let arr = [];
+  let cnt = 0;
+  let res = 0;
 
-// const input = ['2 2',
-//     '1 -1',
-//     '-1 1',
-// ];
+  for(let i = 0; i < box.length; i++) {
+    for(let j = 0; j < box[0].length; j++) {
+      if(box[i][j] === '1') {
+        cnt++;
+        arr.push([i, j]);
+      }
+    }
+  }
 
-// const input = ['2 1',
-// '1 0',
-// ]
+  while(arr.length) {
+    const curCnt = cnt;
+    const newArr = [];
+    arr.forEach(e => {
+      const [x, y] = e;
 
-const bfs = (start) => {
-    while(start.length) {
-        const p = start.shift();
-        const x = p[0];
-        const y = p[1];
-        for(let i = 0; i < draw.length; i++) {
-            const nx = x + draw[i][0];
-            const ny = y + draw[i][1];
-            if(0 <= nx && nx < N
-                && 0 < ny && ny < M) {
-                }
+      for(let i = 0; i < 4; i++) {
+        const xx = x + dx[i];
+        const yy = y + dy[i];
+  
+        if(0 <= xx && xx < n && 0 <= yy && yy < m) {
+          if(box[xx][yy] === '0') {
+            box[xx][yy] = '1';
+            cnt++;
+            newArr.push([xx, yy]);
+          }
         }
+      }
+    })
+    if(curCnt === cnt) break;
+    res++;
+    arr = [...newArr];
+  }
+
+  for(let i = 0; i < box.length; i++) {
+    for(let j = 0; j < box[0].length; j++) {
+      if(box[i][j] === '0') {
+        return -1;
+      }
     }
+  }
+
+  return res;
 }
-
-
-
-const [M, N] = input[0].split(' ').map(e => Number(e));
-const draw = [[1,0], [-1,0], [0,1], [0,-1]]; 
-
-const graph = new Array(N);
-const start = [];
-let res = -1;
-
-for (let i = 0; i < N; i++) {
-    graph[i] = input[i + 1].split(' ').map(e =>Number(e));
-    const t = graph[i].indexOf(1);
-    if(t !== -1) {
-        start.push([i, t]);
-    }
-}
-
-bfs(start);
-
-console.log(graph);
-
-for(let i = 0; i < N; i++) {
-    if(graph[i].indexOf(0) !== -1) {
-        res = -1;
-        break;
-    }
-}
-
-console.log(res);
