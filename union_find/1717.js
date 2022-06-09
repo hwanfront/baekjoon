@@ -24,18 +24,18 @@ let res = '';
 
 const find = (x) => {
   if(x === arr[x]) {
-      return x;
+    return x;
   }
   arr[x] = find(arr[x])
   return arr[x];
 }
 
 const union = (x, y) => {
-    const px = find(x);
-    const py = find(y);
-    
-    if(px > py) arr[px] = py;
-    if(px < py) arr[py] = px;
+  const px = find(x);
+  const py = find(y);
+  
+  if(px > py) arr[px] = py;
+  if(px < py) arr[py] = px;
 }
 
 rl.on("line", (c) => {
